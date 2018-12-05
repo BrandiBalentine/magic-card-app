@@ -1,5 +1,4 @@
 import React from 'react';
-import '../containers/App/App.scss';
 
 const Card = ({ name, artist, imageUrl, setName, type }) => {
   return (

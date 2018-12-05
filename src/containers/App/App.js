@@ -4,10 +4,8 @@ import CardList from '../../components/CardList';
 import Dropdown from '../../components/Dropdown';
 import InfiniteScroll from 'react-infinite-scroller';
 import SearchBox from '../../components/SearchBox';
-import { BASE_URL, SORTABLES } from '../../constants'
-
-
-import './App.scss';
+import { BASE_URL, SORTABLES } from '../../constants';
+import loading from '../../images/loading.gif';
 
 class App extends React.Component {
   constructor(props) {
@@ -70,20 +68,22 @@ class App extends React.Component {
     return (
       <div>
         <header>
-          <h1>Magic Cards</h1>
-          <div role="form" className="form">
-            <SearchBox search={this.search}/>
-            <div className="dropdowns">
-              <Dropdown options={this.state.availableTypes}
-                        defaultValue={this.state.selectedType}
-                        handleChange={this.updateType}
-                        labelText="Type"
-                        selectId="type" />
-              <Dropdown options={SORTABLES}
-                        defaultValue={this.state.orderBy}
-                        handleChange={this.updateSort} 
-                        labelText="Sort by"
-                        selectId="sort-by" />
+          <div class="form-wrapper">
+            <h1>Magic the Gathering</h1>
+            <div role="form" className="form">
+              <SearchBox search={this.search}/>
+              <div className="dropdowns">
+                <Dropdown options={this.state.availableTypes}
+                          defaultValue={this.state.selectedType}
+                          handleChange={this.updateType}
+                          labelText="Type"
+                          selectId="type" />
+                <Dropdown options={SORTABLES}
+                          defaultValue={this.state.orderBy}
+                          handleChange={this.updateSort} 
+                          labelText="Sort by"
+                          selectId="sort-by" />
+              </div>
             </div>
           </div>
         </header>
@@ -93,7 +93,7 @@ class App extends React.Component {
             pageStart={this.page}
             loadMore={this.loadCards.bind(this)}
             hasMore={true}
-            loader={<div className="loader" key={0}>Loading ...</div>}
+            loader={<div className="loader" key={0}><img src={loading}/></div>}
           >
             <CardList cards={this.state.cards} />
           </InfiniteScroll>
