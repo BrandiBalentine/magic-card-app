@@ -28,7 +28,8 @@ class App extends React.Component {
 
   search = (searchQuery) => {
     this.setState({ cards: [],
-                    searchQuery: searchQuery });
+                    searchQuery: searchQuery,
+                    hasMore: true });
     this.scroller.pageLoaded = 0;
   }
 
@@ -40,7 +41,8 @@ class App extends React.Component {
 
   updateType = (type) => {
     this.setState({ cards: [],
-                    selectedType: type });
+                    selectedType: type,
+                    hasMore: true });
     this.scroller.pageLoaded = 0;
   }
 
@@ -61,6 +63,9 @@ class App extends React.Component {
         return results.json();
       }).then(data => {
         this.setState({ cards: this.state.cards.concat(data['cards']) });
+        if (data['cards'].length === 0) {
+          this.setState({hasMore: false});
+        }
     });
   }
 
@@ -68,7 +73,7 @@ class App extends React.Component {
     return (
       <div>
         <header>
-          <div class="form-wrapper">
+          <div className="form-wrapper">
             <h1>Magic the Gathering</h1>
             <div role="form" className="form">
               <SearchBox search={this.search}/>
@@ -92,8 +97,8 @@ class App extends React.Component {
             ref={scroller => this.scroller = scroller}
             pageStart={this.page}
             loadMore={this.loadCards.bind(this)}
-            hasMore={true}
-            loader={<div className="loader" key={0}><img src={loading}/></div>}
+            hasMore={this.state.hasMore}
+            loader={<div className="loader" key={0}><img alt="loading" src={loading}/></div>}
           >
             <CardList cards={this.state.cards} />
           </InfiniteScroll>

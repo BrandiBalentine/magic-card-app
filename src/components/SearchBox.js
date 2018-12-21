@@ -11,9 +11,15 @@ class SearchBox extends Component {
   }
 
   onChange = (e) => {
+    e.persist();
     this.setState({
       searchQuery: e.target.value
+    }, () => { 
+      if (e.target.value === "") {
+        this.submitSearch(); 
+      }
     });
+
   }
 
   inspectKey = (e) => {
