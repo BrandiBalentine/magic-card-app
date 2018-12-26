@@ -180,6 +180,26 @@ input {
   &:hover {
     transform: scale(1.05);
   }
+
+  &--white {
+    box-shadow: 0 0 8px 3px #fff;
+  }
+  
+  &--red{
+    box-shadow: 0 0 8px 3px red;
+  } 
+  
+  &--green{
+    box-shadow: 0 0 8px 3px green;
+  } 
+  
+  &--black{
+    box-shadow: 0 0 8px 3px #000e;
+  } 
+  
+  &--blue{
+    box-shadow: 0 0 8px 3px blue;
+  } 
 }
 
 .card-details {
@@ -197,3 +217,4 @@ input {
     width: 64px;
   }
 }
+

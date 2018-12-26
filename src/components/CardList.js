@@ -15,6 +15,7 @@ const CardList = ({ cards }) => {
               artist={cards[i].artist}
               setName={cards[i].setName}
               type={cards[i].type}
+              colors={cards[i].colors}
             />
           );
         })
