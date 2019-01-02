@@ -182,23 +182,23 @@ input {
   }
 
   &--white {
-    box-shadow: 0 0 8px 3px #fff;
+    box-shadow: 0 0 3px 1px $white;
   }
   
   &--red{
-    box-shadow: 0 0 8px 3px red;
+    box-shadow: 0 0 3px 1px $red;
   } 
   
   &--green{
-    box-shadow: 0 0 8px 3px green;
+    box-shadow: 0 0 3px 1px $green;
   } 
   
   &--black{
-    box-shadow: 0 0 8px 3px #000e;
+    box-shadow: 0 0 3px 1px $black;
   } 
   
   &--blue{
-    box-shadow: 0 0 8px 3px blue;
+    box-shadow: 0 0 3px 1px $blue;
   } 
 }
 
