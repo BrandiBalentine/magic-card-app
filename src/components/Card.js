@@ -9,7 +9,7 @@ const Card = ({ name, artist, imageUrl, setName, type, colors }) => {
     
         {imageUrl?
           React.createElement("img", {src: imageUrl, alt:`${name} Magic Card`}) :
-          <img src={image}/>
+          React.createElement("img", {src: image, alt:`Magic Card Default Image`})
         }
         
         <div className="card-details">
